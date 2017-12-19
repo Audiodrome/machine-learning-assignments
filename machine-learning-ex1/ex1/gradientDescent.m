@@ -18,12 +18,11 @@ for iter = 1:num_iters
     %
     
     hypothesis = (X*theta);
-    summation = sum((hypothesis - y).*X(:,1));
-    theta(1) = theta(1) - ((alpha/m)*(summation));
 
-    summation = sum((hypothesis - y).*X(:,2));
-    theta(2) = theta(2) - ((alpha/m)*(summation));
-    
+    for i = 1:length(theta)
+        summation = sum((hypothesis - y).*X(:,i));
+        theta(i) = theta(i) - ((alpha/m)*(summation));
+    end
 
     % ============================================================
 
