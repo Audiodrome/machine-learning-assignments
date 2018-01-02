@@ -25,14 +25,11 @@ hypothesis = sigmoid(X * theta);
 a = -y .* log(hypothesis);
 b = (1 - y) .* log(1 - hypothesis);
 
-summation = sum(a - b);
-J = summation / m;
+J = sum(a - b) / m;
 
 for i = 1:length(grad)
-    summation = sum((hypothesis - y) .* X(:, i));
-    grad(i) = (summation / m);
+    grad(i) = sum((hypothesis - y) .* X(:, i)) / m;
 end
-
 
 
 % =============================================================
